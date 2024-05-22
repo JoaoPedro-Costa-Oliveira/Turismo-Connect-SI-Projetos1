@@ -15,7 +15,7 @@ crud_pontos_turisticos.listar_pontos_turisticos_cadastrados()
 
 crud_usuarios.criar_arquivo_csv()
 
-crud_usuarios.cadatrar_usuario(nome="Gilvando", cpf= 39821938, idade= 12, email= "ggg@cesar.school", telefone= 321312, endereco="iwjiawhdihawd")
+crud_usuarios.cadatrar_usuario(nome="Gilvandoaaaaaaaaaaaaaaaaaaaaaaaaaaaa", cpf= 398219456464648648638, idade= 12, email= "ggg@cesar.school", telefone= 321312, endereco="iwjiawhdihawd")
 crud_usuarios.editar_informacao_usuario(id_usuario= 1, campo_de_alteracao= "Nome", nova_informacao= "João")
 crud_usuarios.deletar_usuario(id_usuario= 1)
 crud_usuarios.listar_usuarios_cadastrados()

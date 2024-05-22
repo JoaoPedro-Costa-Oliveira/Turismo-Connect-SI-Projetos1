@@ -15,7 +15,7 @@ class EstabelicimentoComerciais:
             self._estabelecimentos_comerciais = pd.read_csv(self.arquivo_csv)
 
         else:
-            self._colunas = ["ID", "Nome", "Endereço", "Descrição", "Horário de funcionamento", "Média das avaliações"]
+            self._colunas = ["ID", "Nome", "Tipo", "Endereço", "Descrição", "Horário de funcionamento", "Média das avaliações"]
             self._estabelecimentos_comerciais = pd.DataFrame(columns= self._colunas)
 
     def criar_arquivo_csv(self):
@@ -40,11 +40,12 @@ class EstabelicimentoComerciais:
 
         self._estabelecimentos_comerciais.to_csv(self.arquivo_csv, sep= ",", index=False, encoding="utf-8")
 
-    def cadastrar_novo_estabelecimento_comercial(self, nome, endereco, descricao, horario_de_funcionamento, medio_de_avaliacoes):
+    def cadastrar_novo_estabelecimento_comercial(self, nome, tipo, endereco, descricao, horario_de_funcionamento, medio_de_avaliacoes):
 
         novo_estabelecimento_comercial = pd.DataFrame ({
             "ID" : [self._estabelecimentos_comerciais["ID"].iloc[-1] + 1 if not self._estabelecimentos_comerciais.empty else 1],
             "Nome" : nome,
+            "Tipo" : tipo,
             "Endereço" : endereco,
             "Descrição" : descricao,
             "Horário de funcionamento": horario_de_funcionamento,
@@ -57,7 +58,13 @@ class EstabelicimentoComerciais:
 
     def listar_estabelicimento_comerciais_cadastrados(self):
 
-        return print(self._estabelecimentos_comerciais.to_string(index= False))
+        if self._estabelecimentos_comerciais.empty:
+
+            print("Nenhum estabelecimento comercial cadastrado")
+
+        else:
+            pd.set_option('colheader_justify', 'center')
+            print(self._estabelecimentos_comerciais.to_string(index= False))
     
     def editar_informacao_estabelicimento_comercial(self, id_estabelecimento_comercial, campo_de_alteracao, nova_informacao):
 
