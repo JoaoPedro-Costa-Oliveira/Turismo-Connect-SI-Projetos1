@@ -37,9 +37,9 @@ class EstruturaMenu():
     @staticmethod 
     def menu_edicao_ponto_turistico():
         print(
-                """
+                """q
                     ------------------------------
-                    CAMPO DE ATERALAÇÃO
+                    CAMPO DE AlTERAÇÃO
                     ------------------------------
                     1 - Nome
                     2 - Endereço
@@ -72,7 +72,7 @@ class EstruturaMenu():
         print(
                 """
                     ------------------------------
-                    CAMPO DE ATERALAÇÃO
+                    CAMPO DE AlTERAÇÃO
                     ------------------------------
                     1 - Nome
                     2 - Cpf
@@ -107,13 +107,14 @@ class EstruturaMenu():
         print(
                 """
                     ------------------------------
-                    CAMPO DE ATERALAÇÃO
+                    CAMPO DE ALTERAÇÃO
                     ------------------------------
                     1 - Nome
-                    2 - Endereço
-                    3 - Descrição
-                    4 - Horários de funcionamento
-                    5 - Média das avaliações
+                    2 - Tipo
+                    3 - Endereço
+                    4 - Descrição
+                    5 - Horários de funcionamento
+                    6 - Média das avaliações
                     ------------------------------
 
                 """

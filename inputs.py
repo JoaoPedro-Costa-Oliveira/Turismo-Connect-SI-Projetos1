@@ -101,6 +101,7 @@ class Inputs:
             try: 
 
                 self.nome_estabelecimento_comercial = input("Insira o nome do estabelecimento comercial: ")
+                self.tipo_estabelecimento_comercial = input("Insira o tipo de estabelecimento comercial: ")
                 self.endereco_estabelecimento_comercial = input("Insira o endereço do estabelecimento comercial: ")
                 self.descricao_estabelecimento_comercial = input("Insira a descrição do estabelecimento comercial: ")
                 self.horario_funcionamento_estabelecimento_comercial = input("Insira os horários de funcionamento do estabelecimento comercial: ")
@@ -117,7 +118,7 @@ class Inputs:
 
             try:
 
-                self.id_usuario = int(input("Informe o ID do estabelecimento comercial que deseja alterar: "))
+                self.id_estabelecimento_comercial = int(input("Informe o ID do estabelecimento comercial que deseja alterar: "))
                 self.id_coluna_para_alterar = int(input("Informe o número de qual coluna deseja alterar: " ))
                 self.nova_informacao = input("Insira a nova alteração: ")
                 break

@@ -103,7 +103,8 @@ class Menu():
                         if inputs.escolha_menu == 1:
 
                             inputs.inputs_cadastrar_usuario()
-                            crud_usuarios.cadatrar_usuario(nome= inputs.nome_usuario, 
+                            crud_usuarios.cadatrar_usuario(nome= inputs.nome_usuario,
+                                                           cpf= inputs.cpf_usuario, 
                                                            idade= inputs.idade_usuario,
                                                             email= inputs.email_usuario,
                                                              telefone= inputs.telefone_usuario,
@@ -170,23 +171,24 @@ class Menu():
                 case 3:
 
                     while True:
-
+                        
                         estrutura_menu.menu_estabelecimentos_comerciais()
                         inputs.escolha_menu_de_opcao()
 
                         if inputs.escolha_menu == 1:
 
-                            inputs.cadastrar_estabelecimento_comercial()
-                            crud_estabelecimentos_comerciais.inputs_cadastrar_novo_estabelecimento_comercial(nome= inputs.nome_estabelecimento_comercial,
+                            inputs.inputs_cadastrar_estabelecimento_comercial()
+                            crud_estabelecimentos_comerciais.cadastrar_novo_estabelecimento_comercial(nome= inputs.nome_estabelecimento_comercial,
+                                                                                                      tipo= inputs.tipo_estabelecimento_comercial,
                                                                                                       endereco= inputs.endereco_estabelecimento_comercial,
-                                                                                                      descricao= inputs.endereco_estabelecimento_comercial,
-                                                                                                      horario_de_funcionamento= inputs.estabe,
-                                                                                                      medio_de_avaliacoes= inputs.horario_funcionamento_estabelecimento_comercial)
+                                                                                                      descricao= inputs.descricao_estabelecimento_comercial,
+                                                                                                      horario_de_funcionamento= inputs.horario_funcionamento_estabelecimento_comercial,
+                                                                                                      medio_de_avaliacoes= inputs.media_avaliacao_estabelecimento_comercial)
                             
                         elif inputs.escolha_menu == 2:
 
                             crud_estabelecimentos_comerciais.listar_estabelicimento_comerciais_cadastrados()
-                            estrutura_menu.menu_estabelecimentos_comerciais()
+                            estrutura_menu.menu_edicao_estabelecimentos_comerciais()
                             inputs.inputs_editar_estabelecimento_comercial()
 
                             if inputs.id_coluna_para_alterar == 1:
@@ -194,18 +196,22 @@ class Menu():
                                 campo_alteracao = "Nome"
 
                             elif inputs.id_coluna_para_alterar == 2:
+
+                                campo_alteracao = "Tipo"
+
+                            elif inputs.id_coluna_para_alterar == 3:
                                 
                                 campo_alteracao = "Endereço"
 
-                            elif inputs.id_coluna_para_alterar == 3:
+                            elif inputs.id_coluna_para_alterar == 4:
 
                                 campo_alteracao = "Descrição"
 
-                            elif inputs.id_coluna_para_alterar == 4:
+                            elif inputs.id_coluna_para_alterar == 5:
 
                                 campo_alteracao = "Horários de funcionamento"
 
-                            elif inputs.id_coluna_para_alterar == 5:
+                            elif inputs.id_coluna_para_alterar == 6:
                                 
                                 campo_alteracao = "Média das avaliações"
                             
@@ -213,14 +219,14 @@ class Menu():
 
                                 print("Opção inválida!")
 
-                            crud_estabelecimentos_comerciais.editar_informacao_estabelicimento_comercial(id_ponto_turistico= inputs.id_ponto_turistico,
+                            crud_estabelecimentos_comerciais.editar_informacao_estabelicimento_comercial(id_estabelecimento_comercial= inputs.id_estabelecimento_comercial,
                                                                                                             campo_de_alteracao= campo_alteracao,
                                                                                                                 nova_informacao= inputs.nova_informacao)
                             
                         elif inputs.escolha_menu == 3:
 
                             crud_estabelecimentos_comerciais.listar_estabelicimento_comerciais_cadastrados()
-                            inputs.id_excluir()
+                            inputs.excluir_id()
                             crud_estabelecimentos_comerciais.deletar_estabelicimento_comerciais(id_estabelecimento_comercial= inputs.id_excluir)
 
                         elif inputs.escolha_menu == 4:
