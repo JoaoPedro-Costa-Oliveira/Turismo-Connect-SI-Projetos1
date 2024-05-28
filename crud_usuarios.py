@@ -12,9 +12,11 @@ class Usuarios:
         self.arquivo_csv = os.path.join(self.diretorio, "Usuarios.csv")
 
         if os.path.exists(self.arquivo_csv):
+            
             self._usuarios = pd.read_csv(self.arquivo_csv)
 
         else:
+
             self._colunas = ["ID", "Nome", "CPF", "Idade", "Email", "Telefone", "Endereço"]
             self._usuarios = pd.DataFrame(columns= self._colunas)
 
@@ -23,6 +25,7 @@ class Usuarios:
         try:
 
             if not os.path.exists(self.diretorio):
+                
                 os.makedirs(self.diretorio)
 
             self.salvar_arquivo_em_csv()
@@ -59,24 +62,32 @@ class Usuarios:
     def listar_usuarios_cadastrados(self):
 
         if self._usuarios.empty:
+
             print("Nenhum usuário registrado! ")
         else:
+            
             pd.set_option('colheader_justify', 'center')
             print(self._usuarios.to_string(index= False))
     
     def editar_informacao_usuario(self, id_usuario, campo_de_alteracao, nova_informacao):
 
         if id_usuario not in self._usuarios["ID"].values:
+            
             print("ID do usuario não foi encontrado")
+        
+        else:
 
-        self._usuarios.loc[self._usuarios["ID"] == id_usuario, campo_de_alteracao] = nova_informacao
-        self.salvar_arquivo_em_csv()
-        print(f"A informação {campo_de_alteracao} do usuario de id {id} foi alterada com sucesso!")
+            self._usuarios.loc[self._usuarios["ID"] == id_usuario, campo_de_alteracao] = nova_informacao
+            self.salvar_arquivo_em_csv()
+            print(f"A informação {campo_de_alteracao} do usuario de id {id} foi alterada com sucesso!")
 
     def deletar_usuario(self, id_usuario):
 
         if id_usuario not in self._usuarios["ID"].values:
+            
             print("ID do usuario não encontrado")
 
-        self._usuarios = self._usuarios[self._usuarios["ID"] != id_usuario]
-        self.salvar_arquivo_em_csv()
+        else:
+
+            self._usuarios = self._usuarios[self._usuarios["ID"] != id_usuario]
+            self.salvar_arquivo_em_csv()

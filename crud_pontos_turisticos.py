@@ -12,9 +12,11 @@ class PontosTuristicos:
         
 
         if os.path.exists(self.arquivo_csv):
+            
             self._pontos_turisticos = pd.read_csv(self.arquivo_csv)
 
         else:
+            
             self._colunas = ["ID", "Nome", "Endereço", "Descrição", "Horários de funcionamento", "Média das avaliações"]
             self._pontos_turisticos = pd.DataFrame(columns=self._colunas)
 
@@ -23,6 +25,7 @@ class PontosTuristicos:
         try:
 
             if not os.path.exists(self.diretorio):
+                
                 os.makedirs(self.diretorio)
 
             self.salvar_arquivo_em_csv()
@@ -62,23 +65,30 @@ class PontosTuristicos:
             print("Nenhum ponto turístico cadastrado")
 
         else: 
+            
             pd.set_option('colheader_justify', 'center')
             print(self._pontos_turisticos.to_string(index= False)) 
 
     def editar_informacao_ponto_turistico(self, id_ponto_turistico, campo_de_alteracao, nova_informacao):
 
         if id_ponto_turistico not in self._pontos_turisticos['ID'].values:
+            
             print("ID do ponto turístico não encontrado.")
+        
+        else:
 
-        self._pontos_turisticos.loc[self._pontos_turisticos["ID"] == id_ponto_turistico, campo_de_alteracao] = nova_informacao
-        self.salvar_arquivo_em_csv()
-        print(f"A informacao {campo_de_alteracao} do ponto turístico de id {id_ponto_turistico} foi alterada com sucesso!")
+            self._pontos_turisticos.loc[self._pontos_turisticos["ID"] == id_ponto_turistico, campo_de_alteracao] = nova_informacao
+            self.salvar_arquivo_em_csv()
+            print(f"A informacao {campo_de_alteracao} do ponto turístico de id {id_ponto_turistico} foi alterada com sucesso!")
 
     def deletar_ponto_turistico(self, id_ponto_turistico):
 
         if id_ponto_turistico not in self._pontos_turisticos['ID'].values:
+            
             print("ID do ponto turístico não encontrado.")
 
-        self._pontos_turisticos= self._pontos_turisticos[self._pontos_turisticos["ID"] != id_ponto_turistico]
-        self.salvar_arquivo_em_csv()
+        else:
+
+            self._pontos_turisticos= self._pontos_turisticos[self._pontos_turisticos["ID"] != id_ponto_turistico]
+            self.salvar_arquivo_em_csv()
     

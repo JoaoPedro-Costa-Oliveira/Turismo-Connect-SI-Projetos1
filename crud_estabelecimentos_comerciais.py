@@ -12,9 +12,11 @@ class EstabelicimentoComerciais:
         self.arquivo_csv = os.path.join(self.diretorio, "Estabelecimentos_comerciais.csv")
 
         if os.path.exists(self.arquivo_csv):
+            
             self._estabelecimentos_comerciais = pd.read_csv(self.arquivo_csv)
 
         else:
+            
             self._colunas = ["ID", "Nome", "Tipo", "Endereço", "Descrição", "Horário de funcionamento", "Média das avaliações"]
             self._estabelecimentos_comerciais = pd.DataFrame(columns= self._colunas)
 
@@ -23,6 +25,7 @@ class EstabelicimentoComerciais:
         try:
 
             if not os.path.exists(self.diretorio):
+                
                 os.makedirs(self.diretorio)
 
             self.salvar_aquivo_em_csv()
@@ -63,22 +66,29 @@ class EstabelicimentoComerciais:
             print("Nenhum estabelecimento comercial cadastrado")
 
         else:
+            
             pd.set_option('colheader_justify', 'center')
             print(self._estabelecimentos_comerciais.to_string(index= False))
     
     def editar_informacao_estabelicimento_comercial(self, id_estabelecimento_comercial, campo_de_alteracao, nova_informacao):
 
         if id_estabelecimento_comercial not in  self._estabelecimentos_comerciais["ID"].values:
+            
             print("ID do ponto comercial não foi encontrado!")
 
-        self._estabelecimentos_comerciais.loc[self._estabelecimentos_comerciais["ID"] == id_estabelecimento_comercial, campo_de_alteracao] = nova_informacao
-        self.salvar_aquivo_em_csv()
-        print(f"A informação {campo_de_alteracao} do estabelicimento comercial de id {id_estabelecimento_comercial} foi alterado com sucesso!")
+        else:
+
+            self._estabelecimentos_comerciais.loc[self._estabelecimentos_comerciais["ID"] == id_estabelecimento_comercial, campo_de_alteracao] = nova_informacao
+            self.salvar_aquivo_em_csv()
+            print(f"A informação {campo_de_alteracao} do estabelicimento comercial de id {id_estabelecimento_comercial} foi alterado com sucesso!")
 
     def deletar_estabelicimento_comerciais(self, id_estabelecimento_comercial):
 
         if id_estabelecimento_comercial not in self._estabelecimentos_comerciais["ID"].values:
+            
             print("ID do establecimento comercial não encontrado!")
 
-        self._estabelecimentos_comerciais = self._estabelecimentos_comerciais[self._estabelecimentos_comerciais["ID"] != id_estabelecimento_comercial]
-        self.salvar_aquivo_em_csv()
+        else:
+
+            self._estabelecimentos_comerciais = self._estabelecimentos_comerciais[self._estabelecimentos_comerciais["ID"] != id_estabelecimento_comercial]
+            self.salvar_aquivo_em_csv()
