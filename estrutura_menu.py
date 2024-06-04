@@ -29,7 +29,7 @@ class EstruturaMenu():
                     2 - Editar ponto turístico
                     3 - Deletar ponto turístico
                     4 - Listar ponto(s) turístico(s)
-                    5 - Sair
+                    5 - Retornar ao menu principal
                     ------------------------------
                     """
             )
@@ -37,7 +37,7 @@ class EstruturaMenu():
     @staticmethod 
     def menu_edicao_ponto_turistico():
         print(
-                """q
+                """
                     ------------------------------
                     CAMPO DE AlTERAÇÃO
                     ------------------------------
@@ -62,7 +62,7 @@ class EstruturaMenu():
                     2 - Editar usuário
                     3 - Deletar usuário
                     4 - Listar usuário(s)
-                    5 - Sair
+                    5 - Retornar ao menu principal
                     ------------------------------
                     """
             )
@@ -97,7 +97,7 @@ class EstruturaMenu():
                     2 - Editar E.C
                     3 - Deletar E.C
                     4 - Listar E.C(s)
-                    5 - Sair
+                    5 - Retornar ao menu principal
                     ------------------------------
                     """
             )

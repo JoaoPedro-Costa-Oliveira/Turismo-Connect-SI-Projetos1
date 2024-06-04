@@ -17,7 +17,7 @@ class EstabelicimentoComerciais:
 
         else:
             
-            self._colunas = ["ID", "Nome", "Tipo", "Endereço", "Descrição", "Horário de funcionamento", "Média das avaliações"]
+            self._colunas = ["ID", "Nome", "Tipo", "Endereço", "Descrição", "Média das avaliações", "Horário de funcionamento"]
             self._estabelecimentos_comerciais = pd.DataFrame(columns= self._colunas)
 
     def criar_arquivo_csv(self):
@@ -43,7 +43,7 @@ class EstabelicimentoComerciais:
 
         self._estabelecimentos_comerciais.to_csv(self.arquivo_csv, sep= ",", index=False, encoding="utf-8")
 
-    def cadastrar_novo_estabelecimento_comercial(self, nome, tipo, endereco, descricao, horario_de_funcionamento, medio_de_avaliacoes):
+    def cadastrar_novo_estabelecimento_comercial(self, nome, tipo, endereco, descricao, horario_de_funcionamento, media_de_avaliacoes):
 
         novo_estabelecimento_comercial = pd.DataFrame ({
             "ID" : [self._estabelecimentos_comerciais["ID"].iloc[-1] + 1 if not self._estabelecimentos_comerciais.empty else 1],
@@ -52,7 +52,7 @@ class EstabelicimentoComerciais:
             "Endereço" : endereco,
             "Descrição" : descricao,
             "Horário de funcionamento": horario_de_funcionamento,
-            "Média das avaliações" : medio_de_avaliacoes
+            "Média das avaliações" : media_de_avaliacoes
         })
 
         self._estabelecimentos_comerciais = pd.concat([self._estabelecimentos_comerciais, novo_estabelecimento_comercial], ignore_index= True)
@@ -92,3 +92,4 @@ class EstabelicimentoComerciais:
 
             self._estabelecimentos_comerciais = self._estabelecimentos_comerciais[self._estabelecimentos_comerciais["ID"] != id_estabelecimento_comercial]
             self.salvar_aquivo_em_csv()
+            print("Ponto turístico deletado com sucesso!")

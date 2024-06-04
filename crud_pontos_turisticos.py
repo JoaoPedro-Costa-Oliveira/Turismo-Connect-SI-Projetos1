@@ -91,4 +91,5 @@ class PontosTuristicos:
 
             self._pontos_turisticos= self._pontos_turisticos[self._pontos_turisticos["ID"] != id_ponto_turistico]
             self.salvar_arquivo_em_csv()
+            print("Ponto turístico deletado com sucesso!")
     

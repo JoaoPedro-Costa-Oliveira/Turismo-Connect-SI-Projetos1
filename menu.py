@@ -183,7 +183,7 @@ class Menu():
                                                                                                       endereco= inputs.endereco_estabelecimento_comercial,
                                                                                                       descricao= inputs.descricao_estabelecimento_comercial,
                                                                                                       horario_de_funcionamento= inputs.horario_funcionamento_estabelecimento_comercial,
-                                                                                                      medio_de_avaliacoes= inputs.media_avaliacao_estabelecimento_comercial)
+                                                                                                      media_de_avaliacoes= inputs.media_avaliacao_estabelecimento_comercial)
                             
                         elif inputs.escolha_menu == 2:
 

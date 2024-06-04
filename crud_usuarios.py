@@ -79,7 +79,7 @@ class Usuarios:
 
             self._usuarios.loc[self._usuarios["ID"] == id_usuario, campo_de_alteracao] = nova_informacao
             self.salvar_arquivo_em_csv()
-            print(f"A informação {campo_de_alteracao} do usuario de id {id} foi alterada com sucesso!")
+            print(f"A informação {campo_de_alteracao} do usuario de id {id_usuario} foi alterada com sucesso!")
 
     def deletar_usuario(self, id_usuario):
 
@@ -91,3 +91,4 @@ class Usuarios:
 
             self._usuarios = self._usuarios[self._usuarios["ID"] != id_usuario]
             self.salvar_arquivo_em_csv()
+            print("Ponto turístico deletado com sucesso!")
